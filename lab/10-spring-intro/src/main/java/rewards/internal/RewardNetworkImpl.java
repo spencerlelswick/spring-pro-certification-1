@@ -69,5 +69,5 @@ public class RewardNetworkImpl implements RewardNetwork {
 		
 		// TODO-08: Return the corresponding reward confirmation
 		return reward;
-	}
+	}	
 }

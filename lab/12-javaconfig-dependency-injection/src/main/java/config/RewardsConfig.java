@@ -2,6 +2,8 @@ package config;
 
 import javax.sql.DataSource;
 
+import org.springframework.context.annotation.Configuration;
+
 /**
  * TODO-00: In this lab, you are going to exercise the following:
  * - Creating Spring configuration class
@@ -42,6 +44,7 @@ import javax.sql.DataSource;
  *   not an implementation.
  */
 
+@Configuration
 public class RewardsConfig {
 
 	// Set this by adding a constructor.
