@@ -1,7 +1,10 @@
 package rewards.internal.restaurant;
 
 import common.money.Percentage;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.EmptyResultDataAccessException;
+import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -18,7 +21,7 @@ import java.util.Map;
  * cache should be populated on initialization and cleared on destruction.
  */
 
-/* TODO-06: Let this class to be found in component-scanning
+/* : Let this class to be found in component-scanning
  * - Annotate the class with an appropriate stereotype annotation
  *   to cause component-scanning to detect and load this bean.
  * - Inject dataSource. Use constructor injection in this case.
@@ -44,6 +47,7 @@ import java.util.Map;
  *   We will fix this error in the next step.
  */
 
+@Repository("restaurantRepository")
 public class JdbcRestaurantRepository implements RestaurantRepository {
 
 	private DataSource dataSource;
@@ -60,6 +64,7 @@ public class JdbcRestaurantRepository implements RestaurantRepository {
 	 * Restaurant cache is populated for read only access
 	 */
 
+	@Autowired
 	public JdbcRestaurantRepository(DataSource dataSource) {
 		this.dataSource = dataSource;
 		this.populateRestaurantCache();
